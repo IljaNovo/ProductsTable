@@ -21,17 +21,14 @@ body {
 #main-section {
     display: table-row;
     height: 100%;
-    background: green;
 }
 
 #main-footer {
     height: 50px;
     width: 950px;
-    background: grey;
 }
 
 #main-header {
     height: 80px;
     width: 950px;
-    background: red;
 }
