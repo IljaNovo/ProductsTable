@@ -72,7 +72,8 @@
 
 #products .column-three .actionsButton {
     width: 100px;
-    height: 50px;
+    height: 40px;
+    border-radius: 6px;
 }
 
 #products .column-three .edit {

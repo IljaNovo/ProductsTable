@@ -1,0 +1,44 @@
+#main-header .auxiliary {
+    height: 100%;
+    width: 700px;
+    margin-left: 70px;
+}
+
+#main-header .auxiliary form:first-child {
+    height: 100%;
+    width: 80%;
+    float: left;
+}
+
+#main-header .auxiliary form:first-child
+input[name="filter-field"] {
+    margin-top: 34px;
+    height: 24px;
+    width: 300px;
+    
+}
+
+#main-header .auxiliary form:first-child 
+input[name="search-products"]{
+    height: 30px;
+    width: 100px;
+    margin-left: 20px;
+    border-radius: 7px;
+}
+
+#main-header .auxiliary form:last-child {
+    height: 100%;
+    width: 20%;
+    float: left;
+}
+
+#main-header .auxiliary form:last-child
+input[name="add"]{
+    float: right;
+    width: 150px;
+    margin-right: 10px;
+    height: 30px;
+    margin-top: 34px;
+    border-radius: 7px;
+}
+    

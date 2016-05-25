@@ -5,17 +5,20 @@
     <title>Страница создания товаров</title>
     <link rel="stylesheet" href="style/main.css" />
     <link rel="stylesheet" href="style/table.css" />
+    <link rel="stylesheet" href="style/header.css" />
 </head>
 <body>
     <div id="wrapper">
        <header id="main-header">
-           <form name="filter" action="#" onsubmit="return false">
-                <input type="text" name=filter-field placeholder="Фильтр по подстроке в имени товара" />
-                <input type="submit" name="search-products" value="Искать"/>
-           </form>
-           <form name="add-price" action="#" onsubmit="return false">
-               <input type="submit" name="add" value="Add New" />
-           </form>
+          <div class="auxiliary">
+               <form name="filter" action="#" onsubmit="return false">
+                    <input type="text" name=filter-field placeholder="Фильтр по подстроке в имени товара" />
+                    <input type="submit" name="search-products" value="Искать"/>
+               </form>
+               <form name="add-price" action="#" onsubmit="return false">
+                   <input type="submit" name="add" value="Add New" />
+               </form>
+           </div>
        </header>
         <section id="main-section">
            <table id="products">
@@ -43,8 +46,10 @@
                         <div class="number-price">111&#36;</div>
                    </td>
                    <td class="column-three">
+                       <form name="productActions" action="#" onsubmit="return false">
                        <input type="button" class="actionsButton edit" name="edit", value="Edit" />
                        <input type="button" class="actionsButton delete" name="delete", value="Delete" />
+                       </form>
                    </td>
                </tbody> 
            </table>
