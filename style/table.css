@@ -1,0 +1,80 @@
+#products {
+ width: 700px;
+    height: 100px;
+    border-collapse: collapse;
+    margin-left: 70px;
+}
+
+#products .headProducts {
+    height: 50px;
+}
+
+#products .cellsProduts td {
+    height: 70px;
+}
+
+#products th, #products td {
+    border: solid 1px black;
+    width: 250px;
+}
+
+#products .column-one {
+    width: 40%;
+}
+
+#products .column-two {
+    width: 25%;
+}
+
+#products .column-three {
+    width: 35%;
+}
+
+#products .head-product-name {
+    
+}
+
+#products .column-one .nameHeadColumnOne {
+    float: left;
+    width: 50px;
+    line-height: 50px;
+    margin-left: 40%;
+    
+}
+
+#products .column-two .nameHeadColumnTwo {
+    float: left;
+    width: 50px;
+    line-height: 50px;
+    margin-left: 35%;
+    
+}
+
+#products .column-one .filter,
+#products .column-two .filter {
+    float: right;
+    height: 100%;
+}
+
+#products .column-one .name-product {
+    float: left;
+    margin-left: 10px;
+}
+
+#products .column-one .productPhoto {
+    float: right;
+    margin-right: 20px;
+}
+
+#products .column-two .number-price {
+    text-align: center;
+}
+
+#products .column-three .actionsButton {
+    width: 100px;
+    height: 50px;
+}
+
+#products .column-three .edit {
+    margin-left: 20px;
+}

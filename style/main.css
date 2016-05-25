@@ -35,14 +35,3 @@ body {
     width: 950px;
     background: red;
 }
-
-#products {
- width: 700px;
-    height: 200px;
-    border-collapse: collapse;
-    margin-left: 70px;
-}
-
-#products th, #products td {
-    border: solid 1px black;
-}

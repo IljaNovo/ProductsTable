@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Страница создания товаров</title>
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="stylesheet" href="style/table.css" />
 </head>
 <body>
     <div id="wrapper">
@@ -18,32 +19,32 @@
        </header>
         <section id="main-section">
            <table id="products">
-               <thead>
+               <thead class="headProducts">
                    <tr>
-                     <th class="head-product-name">
-                         <div class="head-name">Name</div>
-                         <img src="#" class="filter-name" alt="image" title="image" />
+                     <th class="column-one">
+                         <div class="name nameHeadColumnOne">Name</div>
+                         <img src="#" class="filter" />
                       </th>
-                     <th class="head-product-price">
-                         <div class="head-name">Price</div>
-                         <img src="#" class="filter-price" alt="image" title="image" />
+                     <th class="column-two">
+                         <div class="name nameHeadColumnTwo">Price</div>
+                         <img src="#" class="filter" />
                      </th>
-                     <th class="head-product-actions">
-                         <div class="head-name">Actions</div>
+                     <th class="column-three">
+                         <div class="nameActions nameHeadColumnThree">Actions</div>
                      </th>
                    </tr>
                </thead>
-               <tbody>
-                   <td class="column-name-product">
-                       <div class="name-product">Товар 1</div>
-                       <img src="#" alt="image" title="image" />
+               <tbody class="cellsProduts">
+                   <td class="column-one">
+                       <div class="name-product"><a href="#">Товар 1</a></div>
+                       <img src="#" class="productPhoto" alt="image" title="image" />
                    </td>
-                   <td class="column-price-product">
+                   <td class="column-two">
                         <div class="number-price">111&#36;</div>
                    </td>
-                   <td class="column-action-product">
-                       <input type="button" name="edit", value="Edit" />
-                       <input type="button" name="delete", value="Delete" />
+                   <td class="column-three">
+                       <input type="button" class="actionsButton edit" name="edit", value="Edit" />
+                       <input type="button" class="actionsButton delete" name="delete", value="Delete" />
                    </td>
                </tbody> 
            </table>
