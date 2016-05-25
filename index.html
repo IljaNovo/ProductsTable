@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница создания товаров</title>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+    <div id="wrapper">
+       <header id="main-header">
+           <form name="filter" action="#" onsubmit="return false">
+                <input type="text" name=filter-field placeholder="Фильтр по подстроке в имени товара" />
+                <input type="submit" name="search-products" value="Искать"/>
+           </form>
+           <form name="add-price" action="#" onsubmit="return false">
+               <input type="submit" name="add" value="Add New" />
+           </form>
+       </header>
+        <section id="main-section">
+           <table id="products">
+               <thead>
+                   <tr>
+                     <th class="head-product-name">
+                         <div class="head-name">Name</div>
+                         <img src="#" class="filter-name" alt="image" title="image" />
+                      </th>
+                     <th class="head-product-price">
+                         <div class="head-name">Price</div>
+                         <img src="#" class="filter-price" alt="image" title="image" />
+                     </th>
+                     <th class="head-product-actions">
+                         <div class="head-name">Actions</div>
+                     </th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <td class="column-name-product">
+                       <div class="name-product">Товар 1</div>
+                       <img src="#" alt="image" title="image" />
+                   </td>
+                   <td class="column-price-product">
+                        <div class="number-price">111&#36;</div>
+                   </td>
+                   <td class="column-action-product">
+                       <input type="button" name="edit", value="Edit" />
+                       <input type="button" name="delete", value="Delete" />
+                   </td>
+               </tbody> 
+           </table>
+        </section>
+        
+        <footer id="main-footer">
+            
+        </footer>
+    </div>
+</body>
+</html>

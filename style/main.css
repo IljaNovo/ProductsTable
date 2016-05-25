@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+#wrapper {
+    margin: 0 auto;
+    display: table;
+    width: 950px;
+    height: 100%;
+}
+
+#main-section {
+    display: table-row;
+    height: 100%;
+    background: green;
+}
+
+#main-footer {
+    height: 50px;
+    width: 950px;
+    background: grey;
+}
+
+#main-header {
+    height: 150px;
+    width: 950px;
+    background: red;
+}
+
+#products {
+ width: 700px;
+    height: 200px;
+    border-collapse: collapse;
+    margin-left: 70px;
+}
+
+#products th, #products td {
+    border: solid 1px black;
+}
