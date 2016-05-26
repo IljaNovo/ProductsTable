@@ -1,11 +1,15 @@
 #delete_modal_form {
     width: 300px; 
 	height: 110px;
+    margin-top: -55px;
+	margin-left: -150px;
 }
 
 #add_new_modal_form {
-    width: 300px; 
-	height: 300px;
+    width: 350px; 
+	height: 360px;
+    margin-top: -180px;
+	margin-left: -175px;
 }
 
 #edit_modal_form {
@@ -22,8 +26,6 @@
 	position: fixed;
 	top: 45%;
 	left: 50%;
-	margin-top: -150px;
-	margin-left: -150px;
 	display: none;
 	opacity: 0;
 	z-index: 5;
@@ -95,3 +97,34 @@ input[name="NoButton"] {
     padding: 0 20px 0 20px;
     font-size: 18px
 }
+
+#add_new_modal_form form[name="addProduct"]{
+    padding-top: 20px;
+}
+
+#add_new_modal_form label {
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+#add_new_modal_form input[type="text"] {
+    margin-left: 17px;
+    height: 24px;
+    margin-bottom: 15px;
+    margin-top: 3px;
+}
+
+#add_new_modal_form .nameError,
+#add_new_modal_form .emailError{
+    color: red;
+    margin-left: 10px
+}
+
+#add_new_modal_form input[name="addOrUpdate"] {
+    height: 30px;
+    width: 120px;
+    margin-left: 17px;
+    margin-top: 7px;
+}
+
+
