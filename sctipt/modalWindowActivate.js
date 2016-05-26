@@ -23,13 +23,6 @@ $(document).ready(function() {
                 break;
         }
         
-        if (event.target.name === "edit") {
-            
-        }
-        if (event.target.name === "delete") {
-            
-        }
-        
         closeGenerate();
         
         $('#overlay').fadeIn(400, 
