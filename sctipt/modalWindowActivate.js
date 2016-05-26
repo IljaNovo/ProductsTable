@@ -22,7 +22,6 @@ $(document).ready(function() {
                 nameClose = '#add_new_modal_close';
                 break;
         }
-        
         closeGenerate();
         
         $('#overlay').fadeIn(400, 
