@@ -1,21 +1,57 @@
 $(document).ready(function() {
-	$('input[type="submit"][name="add"]').click( function(event){
-		event.preventDefault();
-		$('#overlay').fadeIn(400, 
-		 	function(){
-				$('#add_new_modal_form') 
-					.css('display', 'block')
+    var nameForm = "";
+    var nameClose = "#delete_modal_close";
+    
+    $('input[type="submit"][name="edit"]')
+        .add('input[type="submit"][name="delete"]')
+        .add('input[type="submit"][name="add"]')
+        .click(function(event) {
+        event.preventDefault();
+        
+        switch(event.target.name) {
+            case "edit":
+                nameForm = "#edit_modal_form";
+                nameClose = "#edit_modal_close";
+                break;
+            case "delete":
+                nameForm = "#delete_modal_form";
+                nameClose = '#delete_modal_close';    
+                break;
+            case "add":
+                nameForm = "#add_new_modal_form";
+                nameClose = '#add_new_modal_close';
+                break;
+        }
+        
+        if (event.target.name === "edit") {
+            
+        }
+        if (event.target.name === "delete") {
+            
+        }
+        
+        closeGenerate();
+        
+        $('#overlay').fadeIn(400, 
+		 	function() {
+				$(nameForm)
+                    .css("display", "block")
 					.animate({opacity: 1, top: '50%'}, 200);  
 		});
 	});
 	
-	$('#add_new_modal_close, #overlay').click( function() {
-		$('#add_new_modal_form')
+    
+    function closeGenerate() {
+	   $("#overlay")
+           .add(nameClose)
+           .click(function() {
+        $(nameForm)
 			.animate({opacity: 0, top: '45%'}, 200,
 				function() {
-					$(this).css('display', 'none');
-					$('#overlay').fadeOut(400);
+					$(this).css("display", "none");
+					$("#overlay").fadeOut(400);
 				}
 			);
-	});
+	   });
+    }
 });

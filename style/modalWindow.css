@@ -1,4 +1,6 @@
-#add_new_modal_form {
+#delete_modal_form,
+#add_new_modal_form,
+#edit_modal_form{
 	width: 300px; 
 	height: 300px;
 	border-radius: 5px;
@@ -15,7 +17,9 @@
 	padding: 20px 10px;
 }
 
-#add_new_modal_form #add_new_modal_close {
+#delete_modal_form #delete_modal_close,
+#add_new_modal_form #add_new_modal_close,
+#edit_modal_form #edit_modal_close {
 	width: 21px;
 	height: 21px;
 	position: absolute;
