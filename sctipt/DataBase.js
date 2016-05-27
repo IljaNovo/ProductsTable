@@ -1,17 +1,17 @@
 function DataBase() {
-    this.base = [];
+    this.base = {};
 }
 
-DataBase.prototype.addItems = function (id) {
-      base.push(items);
+DataBase.prototype.addItems = function (items) {
+      this.base[items.itemID] = items;
 };
 
-DataBase.prototype.deleteItems = function (id) {
-    base.splice(index, index);
+DataBase.prototype.deleteItems = function (itemID) {
+    delete this.base[itemID];
 }
 
-DataBase.prototype.getItems = function (id) {
-    return base[index];
+DataBase.prototype.getItems = function (itemID) {
+    return this.base[itemID];
 }
 
 DataBase.prototype.sortNameAsc = function () {

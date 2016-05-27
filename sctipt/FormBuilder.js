@@ -1,12 +1,29 @@
 var formBuilder = (function () {
-    function createForm() {
-        $("#main-section .cellsProduts").append("<tr><td class='column-one'><div class='name-product'><a href='#'>Товар 1</a></div><img src='#' class='productPhoto' alt='image' title='image' /></td><td class='column-two'><div class='number-price'>111&#36;</div></td><td class='column-three'><form name='productActions' action='#' onsubmit='return false'><input type='submit' class='actionsButton edit' name='edit', value='Edit' /><input type='submit' class='actionsButton delete' name='delete', value='Delete' /></form></td></tr>");
+    function addDataInBase() {
+        var item = new ItemDataBase(
+            $("#edit_modal_form .name").val(),
+            $("#edit_modal_form .email").val(),
+            $("#edit_modal_form .count").val(),
+            $("#edit_modal_form .price").val()
+        ); 
+        clearFilds();
+        
+        return item;
     }
-//    function createForm() {
-//        $("#main-section .cellsProduts").append("<div>Text</div>");
-//    }
+    
+    function clearFilds () {
+        $("#edit_modal_form .name").val() = "";
+        $("#edit_modal_form .email").val() = "";
+        $("#edit_modal_form .count").val() = "";
+        $("#edit_modal_form .price").val() = "";
+    }
+    
+    function createForm() {
+        $("#main-section .cellsProduts").append("<tr class='productRow" + increment.get() + "'><td class='column-one'><div class='name-product name-product" + increment.get() + "'><a href='#' class='actionLink" + increment.get() + "'>Товар 1</a></div><img src='#' class='productPhoto productPhoto" + increment.get() + "' alt='image' title='image' /></td><td class='column-two'><div class='number-price number-price" + increment.get() + "'>111&#36;</div></td><td class='column-three'><form name='productActions" + increment.get() + "' action='#' onsubmit='return false'><input type='submit' class='edit actionsButton edit" + increment.get() + "' name='edit' value='Edit' /><input type='submit' class='delete actionsButton delete" + increment.get() + "' name='delete' value='Delete' /></form></td></tr>");
+    }
     
     return {
-        createForm: createForm 
+        createForm: createForm,
+        addDataInBase: addDataInBase
     };
 })();

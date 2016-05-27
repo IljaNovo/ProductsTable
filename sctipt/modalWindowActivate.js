@@ -19,7 +19,6 @@ function addEventCloseModal(nameModalForm, selector) {
     });
 }
 
-
 function closeForm (nameModalForm) {
     $(nameModalForm)
         .animate({opacity: 0, top: '45%'}, 200,
