@@ -13,8 +13,10 @@
 }
 
 #edit_modal_form {
-    width: 300px; 
-	height: 400px;
+    width: 250px; 
+	height: 210px;
+    margin-top: -130px;
+	margin-left: -125px;
 }
 
 #delete_modal_form,
@@ -127,4 +129,12 @@ input[name="NoButton"] {
     margin-top: 7px;
 }
 
+#edit_modal_form {
+    padding-top: 50px;
+}
 
+#edit_modal_form .info-block {
+    margin-left: 23px;
+    margin-bottom: 24px;
+    font-size: 23px;
+}

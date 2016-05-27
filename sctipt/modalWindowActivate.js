@@ -5,6 +5,7 @@ $(document).ready(function() {
     $('input[type="submit"][name="edit"]')
         .add('input[type="submit"][name="delete"]')
         .add('input[type="submit"][name="add"]')
+        .add('#products .name-product')
         .click(function(event) {
         event.preventDefault();
         
@@ -21,6 +22,10 @@ $(document).ready(function() {
                 nameForm = "#add_new_modal_form";
                 nameClose = '#add_new_modal_close';
                 break;
+            default:
+                nameForm = "#edit_modal_form";
+                nameClose = "#edit_modal_close";
+                break;
         }
         closeGenerate();
         
@@ -32,7 +37,6 @@ $(document).ready(function() {
 		});
 	});
 	
-    
     function closeGenerate() {
 	   $("#overlay")
            .add(nameClose)
