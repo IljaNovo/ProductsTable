@@ -2,11 +2,11 @@ function addEventOpenForm(nameModalForm, selectorButton) {
     $(selectorButton)
         .click(function(event) {
         event.preventDefault();
-        $('#overlay').fadeIn(400, 
+        $('#overlay').fadeIn(10, 
 		 	function() {
 				$(nameModalForm)
                     .css("display", "block")
-					.animate({opacity: 1, top: '50%'}, 200);  
+					.animate({opacity: 1, top: '50%'}, 0);  
 		});
 	});
 }
@@ -21,10 +21,10 @@ function addEventCloseModal(nameModalForm, selector) {
 
 function closeForm (nameModalForm) {
     $(nameModalForm)
-        .animate({opacity: 0, top: '45%'}, 200,
+        .animate({opacity: 0, top: '45%'}, 0,
         function() {
             $(this).css("display", "none");
-            $("#overlay").fadeOut(400);
+            $("#overlay").fadeOut(0);
         }
     );
 }
