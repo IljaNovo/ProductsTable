@@ -1,4 +1,4 @@
-function DataBase(name, email, count, price) {
+function ItemDataBase(name, email, count, price) {
     this.itemID = increment.get();
     increment.increase();
     this.name = name;
