@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="style/modalWindow.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="sctipt/modalWindowActivate.js"></script>
+    <script src="sctipt/validater.js"></script>
+    <script src="sctipt/Increment.js"></script>
+    <script src="sctipt/ItemDataBase.js"></script>
+    <script src="sctipt/DataBase.js"></script>
+    <script src="sctipt/priceConvert.js"></script>
+    <script src="sctipt/FormBuilder.js"></script>
+    <script src="sctipt/main.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -41,19 +48,21 @@
                    </tr>
                </thead>
                <tbody class="cellsProduts">
-                   <td class="column-one">
-                       <div class="name-product"><a href="#">Товар 1</a></div>
-                       <img src="#" class="productPhoto" alt="image" title="image" />
-                   </td>
-                   <td class="column-two">
-                        <div class="number-price">111&#36;</div>
-                   </td>
-                   <td class="column-three">
-                       <form name="productActions" action="#" onsubmit="return false">
-                       <input type="submit" class="actionsButton edit" name="edit", value="Edit" />
-                       <input type="submit" class="actionsButton delete" name="delete", value="Delete" />
-                       </form>
-                   </td>
+                   <tr>
+                       <td class="column-one">
+                           <div class="name-product"><a href="#">Товар 1</a></div>
+                           <img src="#" class="productPhoto" alt="image" title="image" />
+                       </td>
+                       <td class="column-two">
+                           <div class="number-price">111&#36;</div>
+                       </td>
+                       <td class="column-three">
+                           <form name="productActions" action="#" onsubmit="return false">
+                               <input type="submit" class="actionsButton edit" name="edit", value="Edit" />
+                               <input type="submit" class="actionsButton delete" name="delete", value="Delete" />
+                           </form>
+                       </td>
+                   </tr>
                </tbody> 
            </table>
         </section>
@@ -80,9 +89,9 @@
        <form action="#" name="addProduct" onsubmit="retunr false"></form> 
         <span id="add_new_modal_close">X</span>
         <label>Name:</label><br />
-        <input type="text" name="productName" placeholder="input name product..." /><span class="nameError">fdf</span><br />
+        <input type="text" name="productName" placeholder="input name product..." /><span class="nameError">Required field</span><br />
         <label>Supplier email:</label><br />
-        <input type="text" name="email" placeholder="input supplier email..." /><span class="emailError">fdfdffdfdfdfd</span><br />
+        <input type="text" name="email" placeholder="input supplier email..." /><span class="emailError">Incorrect email</span><br />
         <label>Count:</label><br />
         <input type="text" name="productCount" placeholder="input count..." /><br />
         <label>Price</label><br />
