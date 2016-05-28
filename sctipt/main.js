@@ -12,6 +12,7 @@ $(document).ready(function () {
            addEventOpenForm("#delete_modal_form", "#products .cellsProduts .delete" + increment.get());
            addEventOpenForm("#edit_modal_form", "#products .cellsProduts .edit" + increment.get());
            dataBase.addItems(formBuilder.addDataInBase());
+           formBuilder.clearFildsAddModal();
            closeForm("#add_new_modal_form");
    }); 
 });

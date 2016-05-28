@@ -10,7 +10,6 @@ var formBuilder = (function () {
             $("#add_new_modal_form input[type='text'][name='productCount']").val(),
             $("#add_new_modal_form input[type='text'][name='productPrice']").val()
         ); 
-        clearFildsAddModal();
         return item;
     }
     
@@ -23,6 +22,7 @@ var formBuilder = (function () {
     
     return {
         createForm: createForm,
-        addDataInBase: addDataInBase
+        addDataInBase: addDataInBase,
+        clearFildsAddModal: clearFildsAddModal
     };
 })();
