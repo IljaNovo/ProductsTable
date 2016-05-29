@@ -1,5 +1,5 @@
 function EditModalWindow(modalFormName) {
-    ModalWindow.apply(this, modalformName);
+    ModalWindow.apply(this, arguments);
 }
 
 EditModalWindow.prototype = Object.create(ModalWindow.prototype);
