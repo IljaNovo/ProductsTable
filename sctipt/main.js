@@ -2,18 +2,18 @@ $(document).ready(function () {
     var additionWindow = new AdditionModalWindow("#add_new_modal_form");
     additionWindow.addOpenEvent("input[type='submit'][name='add']");
     additionWindow.addCloseEvent("#add_new_modal_close");
-    additionWindow.addBaseSetEvent("input[type='submit'][name='addOrUpdate']");
+    additionWindow.addRow("input[type='submit'][name='addOrUpdate']");
     
     
     
-    var editWindow = new EditModalWindow("#edit_modal_form");
-    editWindow.addOpenEvent("#products .cellsProduts .edit0");
-    editWindow.addOpenEvent("#main-section .name-product .actionLink0");
-    aditWindow.addCloseEvent("#edit_modal_close");
-    
-    var deleteWindow = new DeleteModalWindow("#delete_modal_form");
-    deleteWindow.addOpenEvent("#products .cellsProduts .delete0");
-    deleteWindow.addCloseEvent("delete_modal_close");
+//    var editWindow = new EditModalWindow("#edit_modal_form");
+//    editWindow.addOpenEvent("#products .cellsProduts .edit0");
+//    editWindow.addOpenEvent("#main-section .name-product .actionLink0");
+//    aditWindow.addCloseEvent("#edit_modal_close");
+//    
+//    var deleteWindow = new DeleteModalWindow("#delete_modal_form");
+//    deleteWindow.addOpenEvent("#products .cellsProduts .delete0");
+//    deleteWindow.addCloseEvent("delete_modal_close");
 });
        
        

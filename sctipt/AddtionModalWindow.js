@@ -1,5 +1,14 @@
 function AdditionModalWindow(modalFormName) {
     ModalWindow.apply(this, arguments);
+    
+    this.addBaseSetEvent = function() {
+        dataBaseManager.setItem( 
+            this.getName("input[type='text'][name='productName']"),
+            this.getEmail("input[type='text'][name='email']"),
+            this.getCount("input[type='text'][name='productCount']"),
+            this.getPrice("input[type='text'][name='productPrice']")
+        );
+    }
 }
 
 AdditionModalWindow.prototype = Object.create(ModalWindow.prototype);
@@ -13,12 +22,11 @@ AdditionModalWindow.prototype.clearFields = function () {
     }.bind(this));
 }
 
-AdditionModalWindow.prototype.addBaseSetEvent = function(eventSelector) {
+AdditionModalWindow.prototype.addRow = function(eventSelector) {
     $(eventSelector).click(function () {
-        dataBaseManager.setItem( 
+        this.addBaseSetEvent();
+        formManager.createTableRow(
             this.getName("input[type='text'][name='productName']"),
-            this.getEmail("input[type='text'][name='email']"),
-            this.getCount("input[type='text'][name='productCount']"),
             this.getPrice("input[type='text'][name='productPrice']")
         );
         this.clearFields(
