@@ -19,5 +19,19 @@ $(document).ready(function () {
     $("#main-header input[type='submit'][name='search-products']").click(function() {
         formManager.viewFilterItems($("#main-header input[type='text'][name='filter-field']").val());  
     });
+    $("#products .img1").click(function() {
+        if ($("#products .img1").attr("src") === "image/arrowTop.png") {
+            $("#products .img1").attr("src", "image/arrowBottom.png");
+        } else {
+            $("#products .img1").attr("src", "image/arrowTop.png");
+        }
+    });
+    $("#products .img2").click(function() {
+        if ($("#products .img2").attr("src") === "image/arrowTop.png") {
+            $("#products .img2").attr("src", "image/arrowBottom.png");
+        } else {
+            $("#products .img2").attr("src", "image/arrowTop.png");
+        }
+    });
 });
     
