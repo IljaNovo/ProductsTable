@@ -6,7 +6,7 @@ ModalWindow.prototype.closeForm = function() {
     $(this.modalFormName)
         .animate({opacity: 0, top: '45%'}, 0,
         function() {
-            $(this).css("display", "none");
+            $(this.modalFormName).css("display", "none");
             $("#overlay").fadeOut(0);
         }.bind(this));
 }
