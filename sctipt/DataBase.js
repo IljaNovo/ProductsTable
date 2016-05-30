@@ -6,12 +6,12 @@ DataBase.prototype.addItems = function (items) {
       this.base[items.itemID] = items;
 };
 
-DataBase.prototype.deleteItems = function (itemID) {
-    delete this.base[itemID];
+DataBase.prototype.deleteItem = function (index) {
+    delete this.base[index];
 }
 
-DataBase.prototype.getItems = function (itemID) {
-    return this.base[itemID];
+DataBase.prototype.getItem = function (index) {
+    return this.base[index];
 }
 
 DataBase.prototype.sortNameAsc = function () {

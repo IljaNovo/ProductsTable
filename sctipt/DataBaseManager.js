@@ -8,11 +8,11 @@ var dataBaseManager = (function() {
     }
     
     function getItem(itemID) {
-        return dataBase.getItems(itemID);
+        return dataBase.getItem(itemID);
     }
     
-    function removeItem(itemID) {
-        dataBase.deleteItems(itemID);
+    function removeItem(index) {
+        dataBase.deleteItem(index);
     }
     
     return {

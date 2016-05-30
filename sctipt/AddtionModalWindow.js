@@ -30,9 +30,8 @@ AdditionModalWindow.prototype.addRow = function(eventSelector) {
         );
         this.addEditEvent(".productRow" + increment.get() + " .edit" + increment.get());
         this.addEditEvent(".productRow" + increment.get() + " .actionLink" + increment.get());
-        
+        this.addDeleteEvent(".productRow" + increment.get() + " .delete" + increment.get());
         this.setDataInBase();
-        
         this.clearFields(
             "input[type='text'][name='productName']",
             "input[type='text'][name='email']",
@@ -40,6 +39,16 @@ AdditionModalWindow.prototype.addRow = function(eventSelector) {
             "input[type='text'][name='productPrice']"
         );
         this.closeForm();
+    }.bind(this));
+}
+
+AdditionModalWindow.prototype.addDeleteEvent = function(deleteSelector) {
+    var itemForRemove = formManager.getCurentRow();
+    var removeItemIndex = increment.get();
+    $(deleteSelector).click(function() {
+        dataBaseManager.removeItem(removeItemIndex);
+        formManager.deleteTableRow(removeItemIndex);
+        itemForRemove.remove();
     }.bind(this));
 }
 
@@ -56,8 +65,6 @@ AdditionModalWindow.prototype.addEditEvent = function(editSelector) {
             editWindow.addCloseEvent("#edit_modal_close");
     }.bind(this));
 }
-
-///
 
 AdditionModalWindow.prototype.getName = function (nameSelector) {
     return $(this.modalFormName + " " + nameSelector).val();
