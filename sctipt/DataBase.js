@@ -1,40 +1,28 @@
 function DataBase() {
-    this.base = {};
+    this.base = [];
 }
 
 DataBase.prototype.addItems = function (items) {
-      this.base[items.itemID] = items;
+      this.base.push(items);
 };
 
 DataBase.prototype.deleteItem = function (index) {
-    delete this.base[index];
+    for (var i = 0; i < this.base.length; ++i) {
+        if (this.base[i].itemID === index) {
+            this.base.splice(i, i);
+            break;
+        }
+    }
 }
 
 DataBase.prototype.getItem = function (index) {
-    return this.base[index];
+    for (var i = 0; i < this.base.length; ++i) {
+        if (this.base[i].itemID === index) {
+            return this.base[i];
+        }
+    }
 }
 
-DataBase.prototype.sortNameAsc = function () {
-    var newArrey = [];
-    return newArrey;
-}
-
-DataBase.prototype.sortNameDesc = function () {
-    var newArrey = [];
-    return newArrey;
-}
-
-DataBase.prototype.sortPriseAsc = function () {
-    var newArrey = [];
-    return newArrey;
-}
-
-DataBase.prototype.sortPriseDesc = function () {
-    var newArrey = [];
-    return newArrey;
-}
-
-DataBase.prototype.filter = function (baseItams) {
-    var newArrey = [];
-    return newArrey;
+DataBase.prototype.getDataBase = function () {
+    return this.base;
 }
