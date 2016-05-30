@@ -45,11 +45,22 @@ AdditionModalWindow.prototype.addRow = function(eventSelector) {
 AdditionModalWindow.prototype.addDeleteEvent = function(deleteSelector) {
     var itemForRemove = formManager.getCurentRow();
     var removeItemIndex = increment.get();
+    var flag = false;
+    var deleteForm = new DeleteModalWindow("#delete_modal_form");
+    deleteForm.addCloseEvent("#delete_modal_close");
+    deleteForm.addCloseEvent("#delete_modal_form input[name='NoButton']");
+    
+    
     $(deleteSelector).click(function() {
-        dataBaseManager.removeItem(removeItemIndex);
-        formManager.deleteTableRow(removeItemIndex);
-        itemForRemove.remove();
-    }.bind(this));
+        deleteForm.openForm();
+
+        $("#delete_modal_form input[name='YesButton']").click(function() {
+            dataBaseManager.removeItem(removeItemIndex);
+            formManager.deleteTableRow(removeItemIndex);
+            itemForRemove.remove();
+            deleteForm.closeForm();
+        }.bind(this));
+    });
 }
 
 AdditionModalWindow.prototype.addEditEvent = function(editSelector) {
