@@ -17,26 +17,23 @@ var formManager = (function () {
         setFormRow($("tr[class=productRow" + increment.get() + "]"), increment.get());
     }
     
-    function addExecutionTableRow(itemID, name, price) {
-        $("#main-section .cellsProduts").append("<tr class='productRow" + itemID + "'><td class='column-one'><div class='name-product'><a href='#' class='actionLink" + itemID + "'>" + name + "</a></div><img src='#' class='productPhoto productPhoto" + itemID + "' alt='image' title='image' /></td><td class='column-two'><div class='number-price number-price" + itemID + "'>" + price + "</div></td><td class='column-three'><form name='productActions" + itemID + "' action='#' onsubmit='return false'><input type='submit' class='edit actionsButton edit" + itemID + "' name='edit' value='Edit' /><input type='submit' class='delete actionsButton delete" + itemID + "' name='delete' value='Delete' /></form></td>");
-        
-        setFormRow($("tr[class=productRow" + itemID + "]"), itemID);
+    function setNoneInRows() {
+        for (var key in tableRows) {
+            $("tr[class=productRow" + key + "]").css("display", "none");
+        }
     }
     
-    function deleteAllTableRows() {
-        for (var key in tableRows) {
-            tableRows[key].remove();
-            delete tableRows[key];
-        }
+    function setTableRowInRows(index) {
+        $("tr[class=productRow" + index + "]").css("display", "table-row");
     }
     
     function viewFilterItems(subStr) {
         var fiterItems = dataBaseManager.filter(subStr);
         
-        deleteAllTableRows();
+        setNoneInRows();
         
         fiterItems.forEach(function(item, i, fiterItems) {
-            addExecutionTableRow(item.itemID, item.name, item.price);    
+            setTableRowInRows(item.itemID);
         });
     }
     
