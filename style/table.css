@@ -53,14 +53,18 @@
 #products .column-one .filter,
 #products .column-two .filter {
     float: right;
-    height: 100%;
+    height: 60%;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
+/*div link*/
 #products .column-one .name-product {
     float: left;
     margin-left: 10px;
+    margin-top: 11px;
 }
-
+/*фото товара*/
 #products .column-one .productPhoto {
     float: right;
     margin-right: 20px;
