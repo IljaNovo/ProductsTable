@@ -16,7 +16,8 @@ $(document).ready(function () {
         );    
     });
     additionWindow.addRow("input[type='submit'][name='addOrUpdate']");
-    
-    
+    $("#main-header input[type='submit'][name='search-products']").click(function() {
+        formManager.viewFilterItems($("#main-header input[type='text'][name='filter-field']").val());  
+    });
 });
     
