@@ -26,29 +26,29 @@ var dataBaseManager = (function() {
         dataBase.deleteItem(index);
     }
     
-    function sortNameAsc(items) {
-        return items.sort(function(a, b) {
+    function sortNameAsc() {
+        return dataBase.getDataBase().sort(function(a, b) {
             if (a.name > b.name) return 1;
             if (a.name < b.name) return -1;
         });
     }
 
-    function sortNameDesc(items) {
-        return items.sort(function(a, b) {
+    function sortNameDesc() {
+        return dataBase.getDataBase().sort(function(a, b) {
             if (a.name < b.name) return 1;
             if (a.name > b.name) return -1;
         });
     }
 
-    function sortPriseAsc(items) {
-        return items.sort(function(a, b) {
+    function sortPriseAsc() {
+        return dataBase.getDataBase().sort(function(a, b) {
             if (a.price > b.price) return 1;
             if (a.price < b.price) return -1;
         });
     }
 
-    function sortPriseDesc(items) {
-        return items.sort(function(a, b) {
+    function sortPriseDesc() {
+        return dataBase.getDataBase().sort(function(a, b) {
             if (a.price < b.price) return 1;
             if (a.price > b.price) return -1;
         });

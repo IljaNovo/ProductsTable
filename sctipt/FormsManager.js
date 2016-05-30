@@ -17,6 +17,42 @@ var formManager = (function () {
         setFormRow($("tr[class=productRow" + increment.get() + "]"), increment.get());
     }
     
+    function sortDeskPriseForm() {
+        var sortItems = dataBaseManager.sortPriseDesc();
+        
+        for (var i = sortItems.length - 1; i >=0 ; --i) {
+            transwerTableRowInBegin(sortItems[i].itemID);
+        }
+    }
+    
+    function sortAskPriseForm() {
+        var sortItems = dataBaseManager.sortPriseAsc();
+        
+        for (var i = sortItems.length - 1; i >=0 ; --i) {
+            transwerTableRowInBegin(sortItems[i].itemID);
+        }
+    }
+    
+    function sortDeskNameForm() {
+        var sortItems = dataBaseManager.sortNameDesc();
+        
+        for (var i = sortItems.length - 1; i >=0 ; --i) {
+            transwerTableRowInBegin(sortItems[i].itemID);
+        }
+    }
+    
+    function sortAskNameForm() {
+        var sortItems = dataBaseManager.sortNameAsc();
+        
+        for (var i = sortItems.length - 1; i >=0 ; --i) {
+            transwerTableRowInBegin(sortItems[i].itemID);
+        }
+    }
+    
+    function transwerTableRowInBegin(row) {
+        $("tr[class=productRow" + row + "]").prependTo("#products .cellsProduts");
+    }
+    
     function setNoneInRows() {
         for (var key in tableRows) {
             $("tr[class=productRow" + key + "]").css("display", "none");
@@ -50,6 +86,10 @@ var formManager = (function () {
         createTableRow: createTableRow,
         deleteTableRow: deleteTableRow,
         getCurentRow: getCurentRow,
-        viewFilterItems: viewFilterItems
+        viewFilterItems: viewFilterItems,
+        sortDeskNameForm: sortDeskNameForm,
+        sortAskNameForm: sortAskNameForm,
+        sortDeskPriseForm: sortDeskPriseForm,
+        sortAskPriseForm: sortAskPriseForm
     };
 })();

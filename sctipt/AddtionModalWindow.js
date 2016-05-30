@@ -161,6 +161,7 @@ AdditionModalWindow.prototype.addDeleteEvent = function(deleteSelector) {
             formManager.deleteTableRow(removeItemIndex);
             itemForRemove.remove();
             deleteForm.closeForm();
+            $("#delete_modal_form input[name='YesButton']").unbind('click');
         }.bind(this));
     });
 }
