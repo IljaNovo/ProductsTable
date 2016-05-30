@@ -21,25 +21,14 @@ var formManager = (function () {
         setFormRow($("tr[class=productRow" + increment.get() + "]"), increment.get(), patternTableRow);
     }
     
-    function generateRow() {
-        formManager.createTableRow()
-        
-    }
-    
     function getCurentRow() {
         return curentRow;
     }
-        
-    function addEditButtonEvent() {
-        
-    }
-    
-    function addDeleteButtonEvent() {
-        
-    }
     
     function deleteTableRow(index) {
-        delete rowIndexes[index];
+        delete patternTableRows[index];
+        delete tableRows[index];
+        curentRow = null;
     }
     
     return {
