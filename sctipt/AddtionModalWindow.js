@@ -1,5 +1,6 @@
 function AdditionModalWindow(modalFormName) {
     ModalWindow.apply(this, arguments);
+    this.addValidedFocuses();
 }
 
 AdditionModalWindow.prototype = Object.create(ModalWindow.prototype);
@@ -24,21 +25,122 @@ AdditionModalWindow.prototype.setDataInBase = function() {
 
 AdditionModalWindow.prototype.addRow = function(eventSelector) {
     $(eventSelector).click(function () {
-        formManager.createTableRow(
-            this.getName("input[type='text'][name='productName']"),
-            this.getPrice("input[type='text'][name='productPrice']")
-        );
-        this.addEditEvent(".productRow" + increment.get() + " .edit" + increment.get());
-        this.addEditEvent(".productRow" + increment.get() + " .actionLink" + increment.get());
-        this.addDeleteEvent(".productRow" + increment.get() + " .delete" + increment.get());
-        this.setDataInBase();
-        this.clearFields(
-            "input[type='text'][name='productName']",
-            "input[type='text'][name='email']",
-            "input[type='text'][name='productCount']",
-            "input[type='text'][name='productPrice']"
-        );
-        this.closeForm();
+        if (this.validateItemsField()) {
+            formManager.createTableRow(
+                this.getName("input[type='text'][name='productName']"),
+                this.getPrice("input[type='text'][name='productPrice']")
+            );
+            this.addEditEvent(".productRow" + increment.get() + " .edit" + increment.get());
+            this.addEditEvent(".productRow" + increment.get() + " .actionLink" + increment.get());
+            this.addDeleteEvent(".productRow" + increment.get() + " .delete" + increment.get());
+            this.setDataInBase();
+            this.clearFields(
+                "input[type='text'][name='productName']",
+                "input[type='text'][name='email']",
+                "input[type='text'][name='productCount']",
+                "input[type='text'][name='productPrice']"
+            );
+            this.closeForm();
+        }
+    }.bind(this));
+}
+
+AdditionModalWindow.prototype.validateItemsField = function() {
+    var validName = this.validateName();
+    var validEmail = this.validateEmail();
+    var validCount = this.validateCount();
+    var validPrice = this.validatePrice();
+    
+    return validName && validEmail && validCount && validPrice;
+}
+
+AdditionModalWindow.prototype.addValidedFocuses = function() {
+    this.validateNameField(); 
+    this.validateEmailField();
+    this.validateCountField();
+    this.validatePriceField();
+}
+
+AdditionModalWindow.prototype.showDefaultField = function(nameField) {
+    $("input[type='text'][name='"+ nameField +"']")
+                .css("border-width", "1px")
+                .css("border-color", "#A9A9A9")
+                .css("border-style", "solid");
+}
+
+AdditionModalWindow.prototype.showErrorField = function(nameField) {
+    $("input[type='text'][name='"+ nameField +"']")
+                .css("border-width", "1px")
+                .css("border-color", "red")
+                .css("border-style", "solid");
+}
+
+AdditionModalWindow.prototype.validateName = function() {
+    if (!validater.validateName($("input[type='text'][name='productName']").val())) {
+        $("#add_new_modal_form .nameError").css("display", "inline");
+        this.showErrorField("productName");
+        return false;
+    } else {
+        $("#add_new_modal_form .nameError").css("display", "none");
+        this.showDefaultField("productName");
+        return true;
+    }
+}
+
+AdditionModalWindow.prototype.validateEmail = function() {
+    if (!validater.validateEmail($("input[type='text'][name='email']").val())) {
+        $("#add_new_modal_form .emailError").css("display", "inline");
+        this.showErrorField("email");
+        return false;
+    } else {
+        $("#add_new_modal_form .emailError").css("display", "none");
+        this.showDefaultField("email");
+        return true;
+    }
+}
+
+AdditionModalWindow.prototype.validateCount = function() {
+    if (!validater.validateCount($("input[type='text'][name='productCount']").val())) {
+          this.showErrorField("productCount");
+          return false;
+        } else {
+        this.showDefaultField("productCount");
+        return true;
+    }
+}
+
+AdditionModalWindow.prototype.validatePrice = function() {
+    if (!validater.validatePrice($("input[type='text'][name='productPrice']").val())) {
+        this.showErrorField("productPrice");
+        return false;
+    } else {
+        this.showDefaultField("productPrice");
+        return true;
+    }
+}
+
+AdditionModalWindow.prototype.validateNameField = function() {
+    $("input[type='text'][name='productName']").focusout(function() {
+        this.validateName(); 
+    }.bind(this));
+}
+AdditionModalWindow.prototype.validateEmailField = function() {
+    $("input[type='text'][name='email']").focusout(function() {
+        this.validateEmail();
+    }.bind(this));
+}
+AdditionModalWindow.prototype.validateCountField = function() {
+    $("input[type='text'][name='productCount']").focusout(function() {
+        this.validateCount();
+    }.bind(this));
+}
+AdditionModalWindow.prototype.validatePriceField = function() {
+    $("input[type='text'][name='productPrice']").focusout(function() {
+        if (this.validatePrice()) {
+            $("input[type='text'][name='productPrice']").val(
+                priceConvert.convertToDollars($("input[type='text'][name='productPrice']").val())
+            );
+        }
     }.bind(this));
 }
 

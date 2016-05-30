@@ -2,8 +2,15 @@ var dataBaseManager = (function() {
     var dataBase = new DataBase();
     
     function setItem(name, email, count, price) {
+        var validPrice = null;
+        
+        if (price[0] === "$") {
+            validPrice = Number(priceConvert.convertToNumber(price));
+        } else {
+            validPrice = Number(price);
+        }
         dataBase.addItems(
-            new ItemDataBase(name, email, count, price)
+            new ItemDataBase(name, email, count, validPrice)
         );
     }
     

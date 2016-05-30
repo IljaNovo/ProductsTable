@@ -1,5 +1,5 @@
 var priceConvert = (function () {
-    function convert(price) {
+    function convertToDollars(price) {
         var result = "";
         result = categorized(price);
         result = reverse(result);
@@ -7,6 +7,10 @@ var priceConvert = (function () {
         result = "$" + result;
         
         return result;
+    }
+    
+    function convertToNumber(price) {
+        return price.replace(/(\,|\$)/g,"");
     }
     
     function categorized(price) {
@@ -17,6 +21,7 @@ var priceConvert = (function () {
             ++countCategory;
             if (i > 0 && countCategory === 3) {
                 newStr += ",";
+                countCategory = 0;
             }
         }
         return newStr;
@@ -40,6 +45,7 @@ var priceConvert = (function () {
         return newStr;
     }
     return {
-        convert: convert  
+        convertToDollars: convertToDollars,
+        convertToNumber: convertToNumber
     };
 })();

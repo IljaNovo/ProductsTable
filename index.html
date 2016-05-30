@@ -9,17 +9,17 @@
     <link rel="stylesheet" href="style/modalWindow.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="sctipt/ModalWindow.js"></script>
-    <script src="sctipt/validater.js"></script>
+    <script src="sctipt/Validater.js"></script>
     <script src="sctipt/Increment.js"></script>
     <script src="sctipt/ItemDataBase.js"></script>
     <script src="sctipt/DataBase.js"></script>
     <script src="sctipt/DataBaseManager.js"></script>
-    <script src="sctipt/priceConvert.js"></script>
+    <script src="sctipt/PriceConvert.js"></script>
     <script src="sctipt/FormsManager.js"></script>
     <script src="sctipt/AddtionModalWindow.js"></script>
     <script src="sctipt/DeleteModalWindow.js"></script>
     <script src="sctipt/EditModalWindow.js"></script>
-    <script src="sctipt/main.js"></script>
+    <script src="sctipt/Main.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -79,9 +79,9 @@
        <form action="#" name="addProduct" onsubmit="retunr false"></form> 
         <span id="add_new_modal_close">X</span>
         <label>Name:</label><br />
-        <input type="text" name="productName" placeholder="input name product..." /><span class="nameError">Required field</span><br />
+        <input type="text" name="productName" placeholder="input name product..." /><span class="nameError" style="display: none">Required field</span><br />
         <label>Supplier email:</label><br />
-        <input type="text" name="email" placeholder="input supplier email..." /><span class="emailError">Incorrect email</span><br />
+        <input type="text" name="email" placeholder="input supplier email..." /><span class="emailError"  style="display: none">Incorrect email</span><br />
         <label>Count:</label><br />
         <input type="text" name="productCount" placeholder="input count..." /><br />
         <label>Price</label><br />
@@ -92,19 +92,19 @@
       <span id="edit_modal_close">X</span>
         <div class="info-block">
             <label>Name:</label>
-            <span class="name">Чувак</span>
+            <span class="name"></span>
         </div>
         <div class="info-block">
             <label>Email:</label>
-            <span class="email">none</span>
+            <span class="email"></span>
         </div>
         <div class="info-block">
             <label>Count:</label>
-            <span class="count">10</span>
+            <span class="count"></span>
         </div>
         <div class="info-block">
             <label>Price:</label>    
-            <span class="price">1000</span>
+            <span class="price"></span>
         </div>
     </div>
     <div id="overlay"></div>

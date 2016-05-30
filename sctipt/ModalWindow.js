@@ -2,13 +2,16 @@ function ModalWindow(modalFormName) {
     this.modalFormName = modalFormName;
 }
 
-ModalWindow.prototype.closeForm = function() {
+ModalWindow.prototype.closeForm = function(additionFunk) {
     $(this.modalFormName)
         .animate({opacity: 0, top: '45%'}, 0,
         function() {
             $(this.modalFormName).css("display", "none");
             $("#overlay").fadeOut(0);
         }.bind(this));
+    if (additionFunk) {
+        additionFunk();
+    }
 }
 
 ModalWindow.prototype.openForm = function() {
@@ -29,10 +32,13 @@ ModalWindow.prototype.addOpenEvent = function(formOpenSelector) {
     );
 }
 
-ModalWindow.prototype.addCloseEvent = function(formCloseSelector) {
+ModalWindow.prototype.addCloseEvent = function(formCloseSelector, additionFunk) {
     $("#overlay")
         .add(formCloseSelector)
         .click(function() {
+        if (additionFunk) {
+            additionFunk();
+        }
         this.closeForm();
         }.bind(this)
     );

@@ -13,8 +13,9 @@ var validater = (function() {
         return validCode.test(count);
     }
     function validatePrice(price) {
-        var validCode = /^([\d])+(\.[\d]{2}){0,1}$/;
-        return validCode.test(price);
+        var validCodeNumber = /^[\d]+(\.[\d]{2}){1}$/;
+        var validCodeDollars = /^\$[0-9]{1,3}([\,]{1}[0-9]{3})*\.[0-9]{2}$/;
+        return validCodeNumber.test(price) || validCodeDollars.test(price);
     }
     return {
         validateName: validateName,
