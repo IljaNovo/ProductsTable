@@ -1,12 +1,16 @@
-function AdditionModalWindow(modalFormName) {
-    ModalWindow.apply(this, arguments);
-    this.addValidedFocuses();
+function DataControlModalWindow(modalFormName, controls, options) {
+    ModalWindow.call(this, modalFormName);
+    this.button = controls.button;
+    this.fields = controls.fields;
+    if (otions.validates !== undefined) {
+        this.validates = options.validates;
+    }
 }
 
-AdditionModalWindow.prototype = Object.create(ModalWindow.prototype);
-AdditionModalWindow.prototype.constructor = AdditionModalWindow;
+DataControlModalWindow.prototype = Object.create(ModalWindow.prototype);
+DataControlModalWindow.prototype.constructor = DataControlModalWindow;
 
-AdditionModalWindow.prototype.clearFields = function () {
+DataControlModalWindow.prototype.clearFields = function () {
     arguments.forEach = [].forEach;
     
     arguments.forEach(function(item, i, arguments) {
@@ -14,7 +18,7 @@ AdditionModalWindow.prototype.clearFields = function () {
     }.bind(this));
 }
 
-AdditionModalWindow.prototype.setDataInBase = function() {
+DataControlModalWindow.prototype.setDataInBase = function() {
         dataBaseManager.setItem( 
             this.getName("input[type='text'][name='productName']"),
             this.getEmail("input[type='text'][name='email']"),
@@ -23,7 +27,7 @@ AdditionModalWindow.prototype.setDataInBase = function() {
         );
     }
 
-AdditionModalWindow.prototype.addRow = function(eventSelector) {
+DataControlModalWindow.prototype.addRow = function(eventSelector) {
     $(eventSelector).click(function () {
         if (this.validateItemsField()) {
             formManager.createTableRow(
@@ -45,7 +49,7 @@ AdditionModalWindow.prototype.addRow = function(eventSelector) {
     }.bind(this));
 }
 
-AdditionModalWindow.prototype.validateItemsField = function() {
+DataControlModalWindow.prototype.validateItemsField = function() {
     var validName = this.validateName();
     var validEmail = this.validateEmail();
     var validCount = this.validateCount();
@@ -54,28 +58,28 @@ AdditionModalWindow.prototype.validateItemsField = function() {
     return validName && validEmail && validCount && validPrice;
 }
 
-AdditionModalWindow.prototype.addValidedFocuses = function() {
+DataControlModalWindow.prototype.addValidedFocuses = function() {
     this.validateNameField(); 
     this.validateEmailField();
     this.validateCountField();
     this.validatePriceField();
 }
 
-AdditionModalWindow.prototype.showDefaultField = function(nameField) {
+DataControlModalWindow.prototype.showDefaultField = function(nameField) {
     $("input[type='text'][name='"+ nameField +"']")
                 .css("border-width", "1px")
                 .css("border-color", "#A9A9A9")
                 .css("border-style", "solid");
 }
 
-AdditionModalWindow.prototype.showErrorField = function(nameField) {
+DataControlModalWindow.prototype.showErrorField = function(nameField) {
     $("input[type='text'][name='"+ nameField +"']")
                 .css("border-width", "1px")
                 .css("border-color", "red")
                 .css("border-style", "solid");
 }
 
-AdditionModalWindow.prototype.validateName = function() {
+DataControlModalWindow.prototype.validateName = function() {
     if (!validater.validateName($("input[type='text'][name='productName']").val())) {
         $("#add_new_modal_form .nameError").css("display", "inline");
         this.showErrorField("productName");
@@ -87,7 +91,7 @@ AdditionModalWindow.prototype.validateName = function() {
     }
 }
 
-AdditionModalWindow.prototype.validateEmail = function() {
+DataControlModalWindow.prototype.validateEmail = function() {
     if (!validater.validateEmail($("input[type='text'][name='email']").val())) {
         $("#add_new_modal_form .emailError").css("display", "inline");
         this.showErrorField("email");
@@ -99,7 +103,7 @@ AdditionModalWindow.prototype.validateEmail = function() {
     }
 }
 
-AdditionModalWindow.prototype.validateCount = function() {
+DataControlModalWindow.prototype.validateCount = function() {
     if (!validater.validateCount($("input[type='text'][name='productCount']").val())) {
           this.showErrorField("productCount");
           return false;
@@ -109,7 +113,7 @@ AdditionModalWindow.prototype.validateCount = function() {
     }
 }
 
-AdditionModalWindow.prototype.validatePrice = function() {
+DataControlModalWindow.prototype.validatePrice = function() {
     if (!validater.validatePrice($("input[type='text'][name='productPrice']").val())) {
         this.showErrorField("productPrice");
         return false;
@@ -119,22 +123,22 @@ AdditionModalWindow.prototype.validatePrice = function() {
     }
 }
 
-AdditionModalWindow.prototype.validateNameField = function() {
+DataControlModalWindow.prototype.validateNameField = function() {
     $("input[type='text'][name='productName']").focusout(function() {
         this.validateName(); 
     }.bind(this));
 }
-AdditionModalWindow.prototype.validateEmailField = function() {
+DataControlModalWindow.prototype.validateEmailField = function() {
     $("input[type='text'][name='email']").focusout(function() {
         this.validateEmail();
     }.bind(this));
 }
-AdditionModalWindow.prototype.validateCountField = function() {
+DataControlModalWindow.prototype.validateCountField = function() {
     $("input[type='text'][name='productCount']").focusout(function() {
         this.validateCount();
     }.bind(this));
 }
-AdditionModalWindow.prototype.validatePriceField = function() {
+DataControlModalWindow.prototype.validatePriceField = function() {
     $("input[type='text'][name='productPrice']").focusout(function() {
         if (this.validatePrice()) {
             $("input[type='text'][name='productPrice']").val(
@@ -144,7 +148,7 @@ AdditionModalWindow.prototype.validatePriceField = function() {
     }.bind(this));
 }
 
-AdditionModalWindow.prototype.addDeleteEvent = function(deleteSelector) {
+DataControlModalWindow.prototype.addDeleteEvent = function(deleteSelector) {
     var itemForRemove = formManager.getCurentRow();
     var removeItemIndex = increment.get();
     var flag = false;
@@ -166,7 +170,7 @@ AdditionModalWindow.prototype.addDeleteEvent = function(deleteSelector) {
     });
 }
 
-AdditionModalWindow.prototype.addEditEvent = function(editSelector) {
+DataControlModalWindow.prototype.addEditEvent = function(editSelector) {
     var itemDataBase = increment.get();
     $(editSelector).click(function () {
         var editWindow = new EditModalWindow("#edit_modal_form");
@@ -180,18 +184,18 @@ AdditionModalWindow.prototype.addEditEvent = function(editSelector) {
     }.bind(this));
 }
 
-AdditionModalWindow.prototype.getName = function (nameSelector) {
+DataControlModalWindow.prototype.getName = function (nameSelector) {
     return $(this.modalFormName + " " + nameSelector).val();
 }
 
-AdditionModalWindow.prototype.getEmail = function (emailSelector) {
+DataControlModalWindow.prototype.getEmail = function (emailSelector) {
     return $(this.modalFormName + " " + emailSelector).val();
 }
 
-AdditionModalWindow.prototype.getCount = function (countSelector) {
+DataControlModalWindow.prototype.getCount = function (countSelector) {
     return $(this.modalFormName + " " + countSelector).val();
 }
 
-AdditionModalWindow.prototype.getPrice = function (priceSelector) {
+DataControlModalWindow.prototype.getPrice = function (priceSelector) {
     return $(this.modalFormName + " " + priceSelector).val();
 }

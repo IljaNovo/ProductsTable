@@ -7,7 +7,7 @@ $(document).ready(function () {
     
 
 function addAdditionWindowEvents() {
-    var additionWindow = new AdditionModalWindow("#add_new_modal_form");
+    var additionWindow = new DataControlModalWindow("#add_new_modal_form");
     additionWindow.addOpenEvent("input[type='submit'][name='add']");
     additionWindow.addCloseEvent("#add_new_modal_close", function() {
         additionWindow.showDefaultField("productName");

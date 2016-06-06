@@ -62,7 +62,7 @@
         </footer>
     </div>
     
-    <div id="delete_modal_form">
+    <div class="delete_modal_form">
         <span id="delete_modal_close">X</span>
         <header class="head-modal">Are you sure?</header>
         <hr /><br />
@@ -75,37 +75,18 @@
         </footer>
     </div>
     
-    <div id="add_new_modal_form">
+    <div class="add_new_modal_form">
        <form action="#" name="addProduct" onsubmit="retunr false"></form> 
         <span id="add_new_modal_close">X</span>
         <label>Name:</label><br />
-        <input type="text" name="productName" placeholder="input name product..." /><span class="nameError" style="display: none">Required field</span><br />
+        <input type="text" class="productName" placeholder="input name product..." /><span class="nameError" style="display: none">Required field</span><br />
         <label>Supplier email:</label><br />
-        <input type="text" name="email" placeholder="input supplier email..." /><span class="emailError"  style="display: none">Incorrect email</span><br />
+        <input type="text" class="email" placeholder="input supplier email..." /><span class="emailError"  style="display: none">Incorrect email</span><br />
         <label>Count:</label><br />
-        <input type="text" name="productCount" placeholder="input count..." /><br />
+        <input type="text" class="productCount" placeholder="input count..." /><br />
         <label>Price</label><br />
-        <input type="text" name="productPrice" placeholder="input price..." /><br />
-        <input type="submit" name="addOrUpdate" value="Add / Update" />
-    </div>
-    <div id="edit_modal_form"> 
-      <span id="edit_modal_close">X</span>
-        <div class="info-block">
-            <label>Name:</label>
-            <span class="name"></span>
-        </div>
-        <div class="info-block">
-            <label>Email:</label>
-            <span class="email"></span>
-        </div>
-        <div class="info-block">
-            <label>Count:</label>
-            <span class="count"></span>
-        </div>
-        <div class="info-block">
-            <label>Price:</label>    
-            <span class="price"></span>
-        </div>
+        <input type="text" class="productPrice" placeholder="input price..." /><br />
+        <input type="submit" class="addOrUpdate" value="Add / Update" />
     </div>
     <div id="overlay"></div>
     
