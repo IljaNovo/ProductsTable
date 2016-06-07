@@ -1,38 +1,44 @@
 var validater = (function() {
     
-    function addValidateForFields(fields, validatedList, options) {
-        for(var key in fields) {
-            addFocus(fields[key], options, validatedList[key]);
-        }
+    function addValidateForFields(controls, options) {
+        controls.forEach(function(item, i, controls) {
+            if (item.typeControl === "text") {
+                addFocus(item, options);   
+            }
+        });        
     }
     
-    function valide(field, pattern) {
-        return pattern.test($(field).val());   
+    
+    function valide(fieldControl) {
+        var result = false;
+        fieldControl.patterns.forEach(function(item, i, patterns) {
+            result = result || item.test($(fieldControl.selector).val());
+        });
+        return result;
     }
     
-    function addFocus(field, options, pattern) {
-        $(field).focusout(function() {
-            if (!valide(field, options)) {
-                setErrorBorder(field, options);
+    function addFocus(fieldControl, options) {
+        $(fieldControl.selector).focusout(function() {
+            if (!valide(fieldControl)) {
+                setErrorBorder(fieldControl, options);
             } else {
-                setDefaultBorder(field, options);
+                setDefaultBorder(fieldControl, options);
             }
         }.bind(this));
     }
     
-    function setDefaultBorder(field, options) {
-        var color = options.defaultBorder || "#A9A9A9";
+    function setDefaultBorder(fieldControl, options) {
         $(field)
             .css("border-width", "1px")
-            .css("border-color", color)
+            .css("border-color", (options.defaultBorder || "#A9A9A9"))
             .css("border-style", "solid");
+        fieldControl.additionFunc();
     }
     
-    function setErrorBorder(field, options) {
-        var color = options.errorBorder || "red";
+    function setErrorBorder(fieldControl, options) {
         $(field)
             .css("border-width", "1px")
-            .css("border-color", color)
+            .css("border-color", (options.errorBorder || "red"))
             .css("border-style", "solid");
     }
     

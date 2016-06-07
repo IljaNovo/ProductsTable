@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/header.css" />
     <link rel="stylesheet" href="style/modalWindow.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="sctipt/control.js"></script>
     <script src="sctipt/ModalWindow.js"></script>
     <script src="sctipt/Validater.js"></script>
     <script src="sctipt/Increment.js"></script>
@@ -16,9 +17,8 @@
     <script src="sctipt/DataBaseManager.js"></script>
     <script src="sctipt/PriceConvert.js"></script>
     <script src="sctipt/FormsManager.js"></script>
-    <script src="sctipt/AddtionModalWindow.js"></script>
+    <script src="sctipt/DataControlModalWindow.js"></script>
     <script src="sctipt/DeleteModalWindow.js"></script>
-    <script src="sctipt/EditModalWindow.js"></script>
     <script src="sctipt/Main.js"></script>
 </head>
 <body>
@@ -30,7 +30,7 @@
                     <input type="submit" name="search-products" value="Search"/>
                </form>
                <form name="add-price" action="#" onsubmit="return false">
-                   <input type="submit" name="add" value="Add New" />
+                   <input type="submit" name="add" class="add" value="Add New" />
                </form>
            </div>
        </header>
@@ -75,9 +75,9 @@
         </footer>
     </div>
     
-    <div class="add_new_modal_form">
+    <div class="data_control_modal_form">
        <form action="#" name="addProduct" onsubmit="retunr false"></form> 
-        <span id="add_new_modal_close">X</span>
+        <span class="data_control_modal_close">X</span>
         <label>Name:</label><br />
         <input type="text" class="productName" placeholder="input name product..." /><span class="nameError" style="display: none">Required field</span><br />
         <label>Supplier email:</label><br />
@@ -86,9 +86,9 @@
         <input type="text" class="productCount" placeholder="input count..." /><br />
         <label>Price</label><br />
         <input type="text" class="productPrice" placeholder="input price..." /><br />
-        <input type="submit" class="addOrUpdate" value="Add / Update" />
+        <input type="submit" class="addOrUpdate" name="addOrUpdate" value="Add / Update" />
     </div>
-    <div id="overlay"></div>
+    <div class="overlay"></div>
     
 </body>
 </html>

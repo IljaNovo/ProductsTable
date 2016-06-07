@@ -7,7 +7,7 @@ ModalWindow.prototype.closeForm = function(additionFunk) {
         .animate({opacity: 0, top: '45%'}, 0,
         function() {
             $(this.modalFormName).css("display", "none");
-            $("#overlay").fadeOut(0);
+            $(".overlay").fadeOut(0);
         }.bind(this));
     if (additionFunk) {
         additionFunk();
@@ -15,7 +15,7 @@ ModalWindow.prototype.closeForm = function(additionFunk) {
 }
 
 ModalWindow.prototype.openForm = function() {
-    $('#overlay').fadeIn(10,
+    $('.overlay').fadeIn(10,
         function() {
             $(this.modalFormName)
                 .css("display", "block")
@@ -33,7 +33,7 @@ ModalWindow.prototype.addOpenEvent = function(formOpenSelector) {
 }
 
 ModalWindow.prototype.addCloseEvent = function(formCloseSelector, additionFunk) {
-    $("#overlay")
+    $(".overlay")
         .add(formCloseSelector)
         .click(function() {
         if (additionFunk) {
