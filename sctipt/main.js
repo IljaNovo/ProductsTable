@@ -29,18 +29,27 @@ function addAdditionWindowEvents() {
                 [
                     /^[\d]+(\.[\d]{2}){1}$/,
                     /^\$[0-9]{1,3}([\,]{1}[0-9]{3})*\.[0-9]{2}$/
-                ]
-            ),
-            new Control("button","selector")
-        ],
+                ],
+                function () {
+                    $(".data_control_modal_form .productPrice").focusout(function() {
+                        var field = $(".data_control_modal_form .productPrice");
+                        field.val(priceConvert.convertToDollars(field.val()));
+                    });
+                }
+            )
+            ],
+            new Control("button",".data_control_modal_form .addOrUpdate"),
+        
         {
             color: "red",
             validation: true
         }
     );
     dataControlModal.addOpenEvent(".auxiliary .add");
-    dataControlModal.addCloseEvent(".data_control_modal_form .data_control_modal_close");
-    
+    dataControlModal.addCloseEvent(".data_control_modal_form .data_control_modal_close", function() {
+        dataControlModal.clearFields();
+    });
+    dataControlModal.addRow();
     
     
 //    additionWindow.addOpenEvent("input[type='submit'][name='add']");

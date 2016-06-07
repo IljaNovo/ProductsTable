@@ -1,13 +1,12 @@
 var validater = (function() {
     
-    function addValidateForFields(controls, options) {
-        controls.forEach(function(item, i, controls) {
+    function addValidateForFields(fields, options) {
+        fields.forEach(function(item, i, fields) {
             if (item.typeControl === "text") {
                 addFocus(item, options);   
             }
         });        
     }
-    
     
     function valide(fieldControl) {
         var result = false;
@@ -28,20 +27,38 @@ var validater = (function() {
     }
     
     function setDefaultBorder(fieldControl, options) {
-        $(field)
+        $(fieldControl.selector)
             .css("border-width", "1px")
             .css("border-color", (options.defaultBorder || "#A9A9A9"))
             .css("border-style", "solid");
-        fieldControl.additionFunc();
+        if (fieldControl.func !== undefined) {
+            fieldControl.func();
+        }
     }
     
     function setErrorBorder(fieldControl, options) {
-        $(field)
+        $(fieldControl.selector)
             .css("border-width", "1px")
             .css("border-color", (options.errorBorder || "red"))
             .css("border-style", "solid");
     }
     
+    function valideAllFields(fields, options) {
+        var result = true;
+        for (var i = 0; i < fields.length; ++i) {
+            if (fields[i].typeControl !== "text") {
+                continue;  
+            } 
+            if (!valide(fields[i])) {
+                setErrorBorder(fields[i], options);
+                result = result && false;
+            } else {
+                setDefaultBorder(fields[i], options);
+                result = result && true;
+            }
+        }
+        return result;
+    }
 //    function validateName(name) {
 //        var validCode = /^([a-z]|[A-Z]|[А-Я]|[а-я]){1,15}$/;
 //        return validCode.test(name);
@@ -60,6 +77,7 @@ var validater = (function() {
 //        return validCodeNumber.test(price) || validCodeDollars.test(price);
 //    }
     return {
-        addValidateForFields: addValidateForFields
+        addValidateForFields: addValidateForFields,
+        valideAllFields: valideAllFields
     };
 })();

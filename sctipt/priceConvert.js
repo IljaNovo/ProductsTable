@@ -1,5 +1,9 @@
 var priceConvert = (function () {
     function convertToDollars(price) {
+        var correctPrice = /^[\d]+(\.[\d]{2}){1}$/;
+        if (!correctPrice.test(price)) {
+            return price;
+        } 
         var result = "";
         result = categorized(price);
         result = reverse(result);
@@ -10,6 +14,10 @@ var priceConvert = (function () {
     }
     
     function convertToNumber(price) {
+        var correctPrice = /^\$[0-9]{1,3}([\,]{1}[0-9]{3})*\.[0-9]{2}$/;
+        if (!correctPrice.text(price)) {
+            return price;
+        }
         return price.replace(/(\,|\$)/g,"");
     }
     

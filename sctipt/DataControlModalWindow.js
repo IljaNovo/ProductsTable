@@ -1,8 +1,10 @@
-function DataControlModalWindow(modalFormName, controls, options) {
+function DataControlModalWindow(modalFormName, fields, button, options) {
     ModalWindow.call(this, modalFormName);
-    this.controls = controls;
+    this.fields = fields;
+    this.options = options;
+    this.button = button;
     if (options.validation === true) {
-        validater.addValidateForFields(controls, options);
+        validater.addValidateForFields(fields, options);
     }
 }
 
@@ -14,9 +16,23 @@ DataControlModalWindow.prototype = Object.create(ModalWindow.prototype);
 DataControlModalWindow.prototype.constructor = DataControlModalWindow;
 
 DataControlModalWindow.prototype.clearFields = function() {
-    this.controls.forEach(function(item, i, controls) {
+    this.fields.forEach(function(item, i, fields) {
         if (item.typeControl === "text") {
-            $(item.selector).val("");
+            $(item.selector)
+                .val("")
+                .css("border-width", "1px")
+                .css("border-color", (this.options.defaultBorder || "#A9A9A9"))
+                .css("border-style", "solid");
         }
-    });
+    }.bind(this));
+}
+
+DataControlModalWindow.prototype.addRow = function() {
+    $(this.button.selector).click(function() {
+        if (validater.valideAllFields(this.fields, this.options)) {
+        // Добавить строку
+            var y = 10;
+            this.closeForm(this.clearFields());
+        }
+    }.bind(this));
 }
