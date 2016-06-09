@@ -15,7 +15,7 @@ var priceConvert = (function () {
     
     function convertToNumber(price) {
         var correctPrice = /^\$[0-9]{1,3}([\,]{1}[0-9]{3})*\.[0-9]{2}$/;
-        if (!correctPrice.text(price)) {
+        if (!correctPrice.test(price)) {
             return price;
         }
         return price.replace(/(\,|\$)/g,"");

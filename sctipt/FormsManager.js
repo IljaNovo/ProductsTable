@@ -1,20 +1,41 @@
 var formManager = (function () {
     var tableRows = {};
     var curentRow;
+    var createdRow
     
     function getFormRow(rowIndex) {
         return rowIndexes[rowIndex];
     }
     
-    function setFormRow(row, index, patternTableRow) {
+    function setFormRow(row, index, linkName, editButtonName, deleteButtonName) {
         tableRows[index] = row;
-        curentRow = row;
+        curentRow = {
+            linkName: linkName,
+            index: index,
+            editButtonName: editButtonName,
+            deleteButtonName: deleteButtonName
+        }
     }
     
     function createTableRow(name, price) {
         $("#main-section .cellsProduts").append("<tr class='productRow" + increment.get() + "'><td class='column-one'><div class='name-product'><a href='#' class='actionLink" + increment.get() + "'>" + name + "</a></div><img src='image/productImage.png' class='productPhoto productPhoto" + increment.get() + "' alt='image' title='image' /></td><td class='column-two'><div class='number-price number-price" + increment.get() + "'>" + price + "</div></td><td class='column-three'><form name='productActions" + increment.get() + "' action='#' onsubmit='return false'><input type='submit' class='edit actionsButton edit" + increment.get() + "' name='edit' value='Edit' /><input type='submit' class='delete actionsButton delete" + increment.get() + "' name='delete' value='Delete' /></form></td>");
         
-        setFormRow($("tr[class=productRow" + increment.get() + "]"), increment.get());
+        setFormRow($("tr[class=productRow" + increment.get() + "]"),
+                   increment.get(),
+                   (".actionLink" + increment.get()),
+                   (".edit" + increment.get()),
+                   (".delete" + increment.get())
+                  );
+    }
+    
+    function getRowClasses(index) {
+        return {
+            linkName: (".actionLink" + index),
+            index: (index),
+            priseField: (".number-price" + index),
+            editButtonName: (".edit" + index),
+            deleteButtonName: (".delete" + index)
+        };
     }
     
     function sortDeskPriseForm() {
@@ -78,11 +99,13 @@ var formManager = (function () {
     }
     
     function deleteTableRow(index) {
+        $(tableRows[index]).remove();
         delete tableRows[index];
         curentRow = null;
     }
     
     return {
+        getRowClasses: getRowClasses,    
         createTableRow: createTableRow,
         deleteTableRow: deleteTableRow,
         getCurentRow: getCurentRow,

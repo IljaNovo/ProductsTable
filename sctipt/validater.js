@@ -31,6 +31,11 @@ var validater = (function() {
             .css("border-width", "1px")
             .css("border-color", (options.defaultBorder || "#A9A9A9"))
             .css("border-style", "solid");
+        if (fieldControl.additionElem !== undefined) {
+            $(fieldControl.additionElem)
+                .css("display", "none")
+                .css("color", "red");
+        }
         if (fieldControl.func !== undefined) {
             fieldControl.func();
         }
@@ -41,6 +46,11 @@ var validater = (function() {
             .css("border-width", "1px")
             .css("border-color", (options.errorBorder || "red"))
             .css("border-style", "solid");
+        if (fieldControl.additionElem !== undefined) {
+            $(fieldControl.additionElem)
+                .css("display", "inline")
+                .css("color", "red");
+        }
     }
     
     function valideAllFields(fields, options) {
@@ -59,23 +69,7 @@ var validater = (function() {
         }
         return result;
     }
-//    function validateName(name) {
-//        var validCode = /^([a-z]|[A-Z]|[А-Я]|[а-я]){1,15}$/;
-//        return validCode.test(name);
-//    }
-//    function validateEmail(email) {
-//        var validCode = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/
-//        return validCode.test(email);
-//    }
-//    function validateCount(count) {
-//        var validCode = /^[\d]+$/;
-//        return validCode.test(count);
-//    }
-//    function validatePrice(price) {
-//        var validCodeNumber = /^[\d]+(\.[\d]{2}){1}$/;
-//        var validCodeDollars = /^\$[0-9]{1,3}([\,]{1}[0-9]{3})*\.[0-9]{2}$/;
-//        return validCodeNumber.test(price) || validCodeDollars.test(price);
-//    }
+
     return {
         addValidateForFields: addValidateForFields,
         valideAllFields: valideAllFields
