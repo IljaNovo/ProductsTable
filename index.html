@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/header.css" />
     <link rel="stylesheet" href="style/modalWindow.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="sctipt/parserID.js"></script>
     <script src="sctipt/control.js"></script>
     <script src="sctipt/ModalWindow.js"></script>
     <script src="sctipt/Validater.js"></script>
@@ -63,15 +64,15 @@
     </div>
     
     <div class="delete_modal_form">
-        <span id="delete_modal_close">X</span>
+        <span class="delete_modal_close">X</span>
         <header class="head-modal">Are you sure?</header>
         <hr /><br />
         <section class="description">
             Are you sure you want to perform this action?
         </section>
         <footer class="footer-modal">
-            <input type="button" name="YesButton" value="Yes"/>
-            <input type="button" name="NoButton" value="No"/>
+            <input type="button" name="YesButton" class="yes-button" value="Yes"/>
+            <input type="button" name="NoButton" class="no-button" value="No"/>
         </footer>
     </div>
     

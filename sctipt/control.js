@@ -1,4 +1,4 @@
-function Control(typeControl, selector, patterns, func) {
+function Control(typeControl, selector, patterns, func, additionElem) {
     this.typeControl = typeControl;
     this.selector = selector;
     if (patterns !== undefined || patterns !== null) {
@@ -6,5 +6,8 @@ function Control(typeControl, selector, patterns, func) {
     }
     if (func !== undefined) {
         func();
+    }
+    if (additionElem !== undefined) {
+        this.additionElem = additionElem;
     }
 }

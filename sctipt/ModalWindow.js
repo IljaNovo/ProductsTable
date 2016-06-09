@@ -1,5 +1,6 @@
 function ModalWindow(modalFormName) {
     this.modalFormName = modalFormName;
+    this.clickEvent = null;
 }
 
 ModalWindow.prototype.closeForm = function(additionFunk) {
@@ -14,21 +15,28 @@ ModalWindow.prototype.closeForm = function(additionFunk) {
     }
 }
 
-ModalWindow.prototype.openForm = function() {
+ModalWindow.prototype.openForm = function(additionFunk) {
     $('.overlay').fadeIn(10,
         function() {
             $(this.modalFormName)
                 .css("display", "block")
-				.animate({opacity: 1, top: '50%'}, 0);  
+				.animate({opacity: 1, top: '50%'}, 0); 
+        if (additionFunk) {
+            additionFunk();
+        }
     }.bind(this));
 }
 
-ModalWindow.prototype.addOpenEvent = function(formOpenSelector) {
+ModalWindow.prototype.addOpenEvent = function(formOpenSelector, additionFunk) {
     $(formOpenSelector)
         .click(function(event) {
+            this.clickEvent = event;
             event.preventDefault();
             this.openForm();
-	           }.bind(this)
+            if (additionFunk) {
+                additionFunk();
+            }
+	    }.bind(this)
     );
 }
 

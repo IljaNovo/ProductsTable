@@ -18,6 +18,20 @@ var dataBaseManager = (function() {
         return dataBase.getItem(itemID);
     }
     
+    function updateItem(index, name, email, count, price) {
+        var validPrice = null;
+        
+        if (price[0] === "$") {
+            validPrice = Number(priceConvert.convertToNumber(price));
+        } else {
+            validPrice = Number(price);
+        }
+        dataBase.updateDataBase(
+            index,
+            new ItemDataBase(name, email, count, validPrice, true, index)
+        );
+    }
+    
     function getDateBase() {
         return dataBase.getDataBase();
     }
@@ -74,6 +88,7 @@ var dataBaseManager = (function() {
         sortNameDesc: sortNameDesc,
         sortPriseAsc: sortPriseAsc,
         sortPriseDesc: sortPriseDesc,
-        filter: filter
+        filter: filter,
+        updateItem: updateItem
     };
 })();

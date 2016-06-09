@@ -26,3 +26,12 @@ DataBase.prototype.getItem = function (index) {
 DataBase.prototype.getDataBase = function () {
     return this.base;
 }
+
+DataBase.prototype.updateDataBase = function(index, item) {
+    for (var i = 0; i < this.base.length; ++i) {
+        if (this.base[i].itemID === index) {
+            this.base[i] = item;
+            break;
+        }
+    }
+}
